@@ -18,4 +18,5 @@ require OB_DIR . '/inc/helpers.php';
 require OB_DIR . '/inc/content.php';
 require OB_DIR . '/inc/home.php';
 require OB_DIR . '/inc/perf.php';
+require OB_DIR . '/inc/llms.php';
 require OB_DIR . '/inc/shortcodes.php';
