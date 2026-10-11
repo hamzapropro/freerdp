@@ -125,3 +125,11 @@ add_action( 'init', function () {
 add_action( 'wp_enqueue_scripts', function () {
 	wp_dequeue_script( 'wp-embed' );
 }, 100 );
+
+// The empty "Accueil" page duplicates the homepage: send it there permanently.
+add_action( 'template_redirect', function () {
+	if ( is_page( 'accueil' ) && ! is_front_page() ) {
+		wp_safe_redirect( home_url( '/' ), 301 );
+		exit;
+	}
+} );
