@@ -74,3 +74,66 @@ add_filter( 'the_content', function ( $content ) {
 		$content
 	);
 }, 20 );
+
+/**
+ * Legal pages use the dedicated template (hero, side contents, numbered sections).
+ */
+function ob_legal_slugs() {
+	return array( 'mentions-legales', 'politique-de-confidentialite', 'rgpd', 'dmca', 'disclaimer', 'termes-et-conditions' );
+}
+
+add_filter( 'template_include', function ( $template ) {
+	if ( is_page() && in_array( get_post_field( 'post_name', get_queried_object_id() ), ob_legal_slugs(), true ) ) {
+		$legal = OB_DIR . '/template-legal.php';
+		if ( is_readable( $legal ) ) {
+			return $legal;
+		}
+	}
+	return $template;
+} );
+
+/**
+ * Prepare legal page HTML: numbered headings ("1. Title") become a gold number
+ * plus a title with an anchor id. Returns the HTML and the list of sections.
+ *
+ * @param string $html Rendered content.
+ * @return array{html:string,sections:array<int,array{n:string,h:string,id:string}>}
+ */
+function ob_legal_prepare( $html ) {
+	$sections = array();
+	$seen     = array();
+	$count    = 0;
+
+	$has_numbered = (bool) preg_match( '#<h[23][^>]*>\s*\d+\.\s#u', $html );
+
+	$html = preg_replace_callback(
+		'#<h([23])([^>]*)>(.*?)</h\1>#is',
+		function ( $m ) use ( &$sections, &$seen, &$count, $has_numbered ) {
+			$level = $m[1];
+			$text  = trim( html_entity_decode( wp_strip_all_tags( $m[3] ), ENT_QUOTES, 'UTF-8' ) );
+			$num   = '';
+			$title = $text;
+			if ( preg_match( '/^(\d+)\.\s*(.+)$/u', $text, $parts ) ) {
+				$num   = str_pad( $parts[1], 2, '0', STR_PAD_LEFT );
+				$title = $parts[2];
+			} elseif ( $has_numbered ) {
+				// Unnumbered heading in a numbered document: a document title, left as is.
+				return '<h' . $level . $m[2] . '>' . $m[3] . '</h' . $level . '>';
+			}
+			$base = sanitize_title( $title ) ?: 'section';
+			$id   = $base;
+			$n    = 2;
+			while ( isset( $seen[ $id ] ) ) {
+				$id = $base . '-' . $n++;
+			}
+			$seen[ $id ] = true;
+			++$count;
+			$sections[] = array( 'n' => $num ?: str_pad( (string) $count, 2, '0', STR_PAD_LEFT ), 'h' => $title, 'id' => $id );
+			$badge      = '<span class="ob-hnum">' . esc_html( $num ?: str_pad( (string) $count, 2, '0', STR_PAD_LEFT ) ) . '</span>';
+			return '<h2 class="ob-legal-h" id="' . esc_attr( $id ) . '">' . $badge . esc_html( $title ) . '</h2>';
+		},
+		$html
+	);
+
+	return array( 'html' => $html, 'sections' => $sections );
+}
