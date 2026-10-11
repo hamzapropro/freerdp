@@ -1037,7 +1037,20 @@ body.ob-lock { overflow: hidden; }
 .cmplz-cookiebanner .cmplz-btn { font-family: var(--ob-body); font-weight: 600; }
 .cmplz-cookiebanner .cmplz-message { color: #EDE6DC; }
 @media (max-width: 699px) {
-	.cmplz-cookiebanner.cmplz-bottom-right { left: 12px !important; right: 12px !important; bottom: 12px !important; width: auto !important; max-width: none !important; }
+	/* Compact bar on phones: short text, two buttons side by side, no oversized padding. */
+	#cmplz-cookiebanner-container .cmplz-cookiebanner.cmplz-bottom-right {
+		left: 10px !important; right: 10px !important; bottom: 10px !important; width: auto !important; max-width: none !important;
+		padding: 14px 16px !important; gap: 8px !important; grid-gap: 8px !important; border-radius: 18px !important;
+	}
+	#cmplz-cookiebanner-container .cmplz-cookiebanner .cmplz-header { margin: 0 !important; grid-template-columns: 1fr 24px !important; }
+	#cmplz-cookiebanner-container .cmplz-cookiebanner .cmplz-title { font-size: 16px !important; }
+	#cmplz-cookiebanner-container .cmplz-cookiebanner .cmplz-close { width: 20px !important; height: 20px !important; }
+	#cmplz-cookiebanner-container .cmplz-cookiebanner .cmplz-divider { display: none !important; }
+	#cmplz-cookiebanner-container .cmplz-cookiebanner .cmplz-message { font-size: 13px !important; line-height: 1.45 !important; margin: 0 !important; }
+	#cmplz-cookiebanner-container .cmplz-cookiebanner .cmplz-buttons { display: flex !important; flex-direction: row !important; flex-wrap: wrap !important; gap: 8px !important; margin: 0 !important; }
+	#cmplz-cookiebanner-container .cmplz-cookiebanner .cmplz-btn { width: auto !important; flex: 1 1 calc(50% - 4px) !important; margin: 0 !important; padding: 10px 8px !important; font-size: 14px !important; min-height: 0 !important; }
+	#cmplz-cookiebanner-container .cmplz-cookiebanner .cmplz-btn.cmplz-view-preferences { flex-basis: 100% !important; order: 3; padding: 2px !important; background: transparent !important; border: 0 !important; font-size: 13px !important; text-decoration: underline; }
+	#cmplz-cookiebanner-container .cmplz-cookiebanner .cmplz-links { font-size: 12px !important; margin: 0 !important; }
 }
 
 /* Rubrique intro: real description, shortened to 3 lines with a "read more" toggle */
