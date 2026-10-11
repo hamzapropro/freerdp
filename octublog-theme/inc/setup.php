@@ -106,3 +106,22 @@ add_action( 'template_redirect', function () {
 		exit;
 	}
 } );
+
+// Speed: images inside post content load lazily (the cover image is eager and prioritised in single.php).
+add_filter( 'wp_omit_loading_attr_threshold', function ( $threshold ) {
+	return is_singular() ? 0 : $threshold;
+} );
+
+// Speed: drop front-end extras the theme does not use.
+add_action( 'init', function () {
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+	remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+	remove_action( 'wp_head', 'wlwmanifest_link' );
+	remove_action( 'wp_head', 'rsd_link' );
+	remove_action( 'wp_head', 'wp_generator' );
+} );
+add_action( 'wp_enqueue_scripts', function () {
+	wp_dequeue_script( 'wp-embed' );
+}, 100 );

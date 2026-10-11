@@ -137,3 +137,40 @@ function ob_legal_prepare( $html ) {
 
 	return array( 'html' => $html, 'sections' => $sections );
 }
+
+/**
+ * Images in articles without alt text take their caption (or the post title) as alt.
+ */
+add_filter( 'the_content', function ( $content ) {
+	if ( ! is_singular( 'post' ) || ! in_the_loop() || ! is_main_query() || false === strpos( $content, '<img' ) ) {
+		return $content;
+	}
+	$title = get_the_title();
+	return preg_replace_callback(
+		'#<figure\b[^>]*>.*?</figure>|<img\b[^>]*>#is',
+		function ( $m ) use ( $title ) {
+			$html = $m[0];
+			$caption = '';
+			if ( 0 === strpos( $html, '<figure' ) && preg_match( '#<figcaption[^>]*>(.*?)</figcaption>#is', $html, $c ) ) {
+				$caption = trim( wp_strip_all_tags( $c[1] ) );
+			}
+			return preg_replace_callback(
+				'#<img\b[^>]*>#i',
+				function ( $im ) use ( $caption, $title ) {
+					$tag = $im[0];
+					$has_alt = preg_match( '#\salt=(["\'])(.*?)\1#is', $tag, $a );
+					if ( $has_alt && '' !== trim( $a[2] ) ) {
+						return $tag;
+					}
+					$alt = esc_attr( $caption ?: $title );
+					if ( $has_alt ) {
+						return preg_replace( '#\salt=(["\']).*?\1#is', ' alt="' . $alt . '"', $tag, 1 );
+					}
+					return preg_replace( '#<img\b#i', '<img alt="' . $alt . '"', $tag, 1 );
+				},
+				$html
+			);
+		},
+		$content
+	);
+}, 30 );

@@ -220,6 +220,36 @@ function ob_author_by_slug( $slug ) {
 /**
  * Avatar image, with an initials disc when no picture is set.
  */
+/**
+ * Smaller copy of an uploaded image sized for its display width, so a 32px
+ * avatar does not download a 350 KB original.
+ */
+function ob_sized_url( $url, $px ) {
+	static $memo = array();
+	$key = $url . '|' . $px;
+	if ( isset( $memo[ $key ] ) ) {
+		return $memo[ $key ];
+	}
+	$memo[ $key ] = $url;
+	if ( false === strpos( $url, '/wp-content/uploads/' ) ) {
+		return $url;
+	}
+	$tkey = 'ob_att_' . md5( $url );
+	$id   = get_transient( $tkey );
+	if ( false === $id ) {
+		$id = (int) attachment_url_to_postid( $url );
+		set_transient( $tkey, $id, DAY_IN_SECONDS );
+	}
+	if ( $id ) {
+		$size = $px <= 56 ? 'thumbnail' : ( $px <= 160 ? 'medium' : 'large' );
+		$out  = wp_get_attachment_image_url( (int) $id, $size );
+		if ( $out ) {
+			$memo[ $key ] = $out;
+		}
+	}
+	return $memo[ $key ];
+}
+
 function ob_avatar( $author, $size = 32, $class = '' ) {
 	$name = $author['name'] ?? '';
 	$url  = $author['avatar'] ?? '';
@@ -238,7 +268,7 @@ function ob_avatar( $author, $size = 32, $class = '' ) {
 	}
 	return sprintf(
 		'<img class="ob-avatar %4$s" src="%1$s" alt="%2$s" width="%3$d" height="%3$d" loading="lazy" decoding="async">',
-		esc_url( $url ),
+		esc_url( ob_sized_url( $url, (int) $size ) ),
 		esc_attr( $name ),
 		(int) $size,
 		esc_attr( $class )
