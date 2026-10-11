@@ -195,4 +195,34 @@
 			} );
 		}
 	} );
+	/* Analytics scripts held back by inc/perf.php start on first interaction, or after load plus 8 seconds. */
+	var held = document.querySelectorAll( 'script[type="ob/delay"]' );
+	if ( held.length ) {
+		var released = false;
+		var events = [ 'pointerdown', 'keydown', 'scroll', 'touchstart', 'mousemove' ];
+		var release = function () {
+			if ( released ) {
+				return;
+			}
+			released = true;
+			events.forEach( function ( e ) { window.removeEventListener( e, release ); } );
+			held.forEach( function ( old ) {
+				var s = document.createElement( 'script' );
+				Array.prototype.forEach.call( old.attributes, function ( a ) {
+					if ( 'type' !== a.name && 'data-ob-src' !== a.name ) {
+						s.setAttribute( a.name, a.value );
+					}
+				} );
+				if ( old.getAttribute( 'data-ob-src' ) ) {
+					s.src = old.getAttribute( 'data-ob-src' );
+					s.async = true;
+				} else {
+					s.text = old.textContent;
+				}
+				old.parentNode.replaceChild( s, old );
+			} );
+		};
+		events.forEach( function ( e ) { window.addEventListener( e, release, { passive: true, once: true } ); } );
+		window.addEventListener( 'load', function () { setTimeout( release, 8000 ); } );
+	}
 }() );
