@@ -134,10 +134,10 @@ add_shortcode( 'ob_home_cats', function () {
 	return ob_get_clean();
 } );
 
-/** [ob_home_latest title="Derniers articles" button="Voir plus d’articles" count="3"] */
+/** [ob_home_latest title="Derniers articles" button="Voir plus d’articles"] */
 add_shortcode( 'ob_home_latest', function ( $a ) {
-	$a = shortcode_atts( array( 'title' => 'Derniers articles', 'button' => 'Voir plus d’articles', 'count' => 3 ), $a );
-	$ob_latest = ob_home_take( array( 'posts_per_page' => max( 1, min( 12, (int) $a['count'] ) ) ) );
+	$a = shortcode_atts( array( 'title' => 'Derniers articles', 'button' => 'Voir plus d’articles' ), $a );
+	$ob_latest = ob_home_take( array( 'posts_per_page' => 6 ) );
 	ob_start();
 	?>
 <section class="ob-wrap ob-section">
@@ -162,14 +162,14 @@ add_shortcode( 'ob_home_latest', function ( $a ) {
  * A non-empty quote adds the quote band above the section (author of the rubrique).
  */
 add_shortcode( 'ob_home_rubrique', function ( $a ) {
-	$a = shortcode_atts( array( 'slug' => '', 'layout' => 'grid', 'seeall' => 'Voir tout', 'quote' => '', 'count' => 3 ), $a );
+	$a = shortcode_atts( array( 'slug' => '', 'layout' => 'grid', 'seeall' => 'Voir tout', 'quote' => '' ), $a );
 	$ob_rubs = ob_rubriques();
 	if ( empty( $ob_rubs[ $a['slug'] ] ) ) {
 		return '';
 	}
 	$ob_rub    = $ob_rubs[ $a['slug'] ];
 	$ob_owner  = ob_author_by_slug( $ob_rub['author'] );
-	$ob_items  = ob_home_take( array( 'cat' => $ob_rub['term']->term_id, 'posts_per_page' => max( 2, min( 4, (int) $a['count'] ) ) ) );
+	$ob_items  = ob_home_take( array( 'cat' => $ob_rub['term']->term_id, 'posts_per_page' => 4 ) );
 	if ( ! $ob_items ) {
 		return '';
 	}
@@ -225,7 +225,7 @@ add_shortcode( 'ob_home_rubrique', function ( $a ) {
 					</div>
 				</div>
 			<?php else : ?>
-				<div class="ob-grid ob-grid--<?php echo (int) min( 4, max( 3, count( $ob_items ) ) ); ?> ob-grid--scroll">
+				<div class="ob-grid ob-grid--4 ob-grid--scroll">
 					<?php
 					foreach ( $ob_items as $ob_p ) {
 						echo '<div class="ob-grid__cell">';
@@ -301,11 +301,12 @@ function ob_home_default_blocks() {
 	};
 	return $sc( '[ob_home_hero title="À la une" recent="Récemment publiés"]' )
 		. $sc( '[ob_strip]' )
-		. $sc( '[ob_home_latest title="Derniers articles" button="Voir plus d’articles" count="3"]' )
-		. $sc( '[ob_home_rubrique slug="vie-digitale-et-tech" layout="grid" seeall="Voir tout" count="3"]' )
-		. $sc( '[ob_home_rubrique slug="maison-et-organisation" layout="grid" seeall="Voir tout" count="3"]' )
-		. $sc( '[ob_home_rubrique slug="enfance-et-famille" layout="feature" seeall="Voir tout" count="3" quote="Il n’existe pas de méthode parentale universelle."]' )
-		. $sc( '[ob_home_rubrique slug="inspirations-et-bien-etre" layout="quotes" seeall="Voir tout" count="3"]' )
+		. $sc( '[ob_home_cats]' )
+		. $sc( '[ob_home_latest title="Derniers articles" button="Voir plus d’articles"]' )
+		. $sc( '[ob_home_rubrique slug="vie-digitale-et-tech" layout="grid" seeall="Voir tout"]' )
+		. $sc( '[ob_home_rubrique slug="maison-et-organisation" layout="grid" seeall="Voir tout"]' )
+		. $sc( '[ob_home_rubrique slug="enfance-et-famille" layout="feature" seeall="Voir tout" quote="Il n’existe pas de méthode parentale universelle."]' )
+		. $sc( '[ob_home_rubrique slug="inspirations-et-bien-etre" layout="quotes" seeall="Voir tout"]' )
 		. $sc( '[ob_home_newsletter]' )
 		. $sc( '[ob_home_team title="Nos expertes et experts" text="Chaque rubrique est tenue par une personne qui la pratique au quotidien."]' );
 }
