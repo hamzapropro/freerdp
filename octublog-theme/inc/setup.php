@@ -133,3 +133,9 @@ add_action( 'template_redirect', function () {
 		exit;
 	}
 } );
+
+// The block editor shows the page with the theme's own styles.
+add_action( 'after_setup_theme', function () {
+	add_theme_support( 'editor-styles' );
+	add_editor_style( 'assets/css/main.css' );
+} );

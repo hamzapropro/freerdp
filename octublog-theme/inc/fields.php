@@ -2,8 +2,8 @@
 /**
  * Editable texts for the designed pages.
  *
- * About and Contact: a "Textes de la page" panel in the page editor (post meta).
  * Homepage: Appearance > Customize > "Octublog – Accueil" (theme mods).
+ * About and Contact are built with blocks in the page editor.
  * Every field has a default, so an empty field shows the designed text.
  *
  * @package Octublog
@@ -20,40 +20,6 @@ function ob_fields() {
 		return $fields;
 	}
 	$fields = array(
-		'about'   => array(
-			'badge'      => array( 'Étiquette du haut', 'À propos d’Octublog', 'text' ),
-			'title'      => array( 'Titre principal', 'Des idées claires pour simplifier votre quotidien.', 'text' ),
-			'lead'       => array( 'Texte d’introduction', 'Octublog est un magazine où chaque rubrique est confiée à une seule personne. Organisation de la maison, enfants, bien-être, tech, création, voyage : on publie des guides concrets, testés, avec des budgets réels.', 'textarea' ),
-			'btn1'       => array( 'Bouton 1 (vers l’accueil)', 'Lire nos guides', 'text' ),
-			'btn2'       => array( 'Bouton 2 (vers l’équipe)', 'Rencontrer l’équipe', 'text' ),
-			'm_eyebrow'  => array( 'Méthode : petit titre', 'Notre méthode', 'text' ),
-			'm_title'    => array( 'Méthode : titre', 'Quatre règles qu’on applique à chaque article', 'text' ),
-			'r1_t'       => array( 'Règle 1 : titre', 'Testé avant d’être conseillé', 'text' ),
-			'r1_d'       => array( 'Règle 1 : texte', 'Aucun outil ni produit n’est recommandé sans avoir été utilisé par l’auteur de la rubrique.', 'textarea' ),
-			'r2_t'       => array( 'Règle 2 : titre', 'Des budgets réels', 'text' ),
-			'r2_d'       => array( 'Règle 2 : texte', 'Un prix réaliste, une méthode précise, un temps honnête. Et une alternative moins chère quand elle existe.', 'textarea' ),
-			'r3_t'       => array( 'Règle 3 : titre', 'Les ratés aussi', 'text' ),
-			'r3_d'       => array( 'Règle 3 : texte', 'Nos tutoriels montrent les étapes qui coincent, pas seulement le résultat final.', 'textarea' ),
-			'r4_t'       => array( 'Règle 4 : titre', 'Sans jugement', 'text' ),
-			'r4_d'       => array( 'Règle 4 : texte', 'On écrit pour que vous refermiez la page un peu moins seul, jamais plus jugé.', 'textarea' ),
-			't_eyebrow'  => array( 'Équipe : petit titre', 'L’équipe', 'text' ),
-			't_title'    => array( 'Équipe : titre', 'Une rubrique, une autrice ou un auteur', 'text' ),
-			'cta_title'  => array( 'Bandeau final : titre', 'Une question, une idée de sujet ?', 'text' ),
-			'cta_text'   => array( 'Bandeau final : texte', 'Écrivez à l’équipe ou directement à l’auteur de la rubrique.', 'text' ),
-			'cta_btn'    => array( 'Bandeau final : bouton', 'Contactez-nous', 'text' ),
-		),
-		'contact' => array(
-			'badge'      => array( 'Étiquette du haut', 'Contact', 'text' ),
-			'title'      => array( 'Titre principal', 'Écrivez-nous. On lit tous les messages.', 'text' ),
-			'lead'       => array( 'Texte d’introduction', 'Une question sur un article, une erreur repérée, un sujet que vous aimeriez voir traité ou une proposition de partenariat : envoyez-nous un mot.', 'textarea' ),
-			'form_title' => array( 'Titre du formulaire', 'Votre message', 'text' ),
-			'note'       => array( 'Note sous le formulaire', 'Nous répondons sous 24 à 48 heures ouvrées.', 'text' ),
-			'emails'     => array( 'E-mails (un par ligne)', "contact@octublog.com\nadmin@octublog.com", 'textarea' ),
-			'address'    => array( 'Adresse (une ligne par ligne)', "8 Place Bellecour\n69002 Lyon, France", 'textarea' ),
-			'phone'      => array( 'Téléphone (laisser vide pour masquer)', '', 'textarea' ),
-			'a_title'    => array( 'Auteurs : titre', 'Écrire à un auteur', 'text' ),
-			'a_text'     => array( 'Auteurs : texte', 'Pour une question sur une rubrique précise.', 'text' ),
-		),
 		'home'    => array(
 			'hero_title'   => array( 'À la une : titre', 'À la une', 'text' ),
 			'recent_title' => array( 'Colonne « récents » : titre', 'Récemment publiés', 'text' ),
@@ -71,7 +37,7 @@ function ob_fields() {
 /**
  * Value of an editable text (falls back to the designed default).
  *
- * @param string   $scope about|contact|home.
+ * @param string   $scope home.
  * @param string   $key   Field key.
  * @param int|null $post  Page id (about/contact); defaults to the current post.
  * @return string
@@ -116,11 +82,7 @@ function ob_fields_scope_for_post( $post ) {
 	if ( ! $post || 'page' !== $post->post_type ) {
 		return '';
 	}
-	$map = array(
-		'a-propos-de-nous' => 'about',
-		'contact'          => 'contact',
-	);
-	return isset( $map[ $post->post_name ] ) ? $map[ $post->post_name ] : '';
+	return '';
 }
 
 add_action(

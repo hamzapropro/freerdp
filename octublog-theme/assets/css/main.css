@@ -1048,3 +1048,23 @@ body.ob-lock { overflow: hidden; }
 .ob-clamp:not(.is-clamped) .ob-clamp__body { -webkit-mask-image: none !important; mask-image: none !important; }
 .ob-clamp__btn { font-family: var(--ob-body); font-size: 14px; font-weight: 700; color: var(--ob-ink); background: none; border: 0; padding: 4px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
 .ob-clamp__btn:hover { color: var(--ob-link); }
+
+/* Block-editor versions of the designed pages (About, Contact). */
+.ob-bb { margin: 0; }
+.ob-bb .wp-block-button__link {
+	display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+	font-family: var(--ob-body); font-size: 15px; font-weight: 600; line-height: 1.2;
+	padding: 13px 26px; border-radius: var(--ob-radius); border: 1.5px solid transparent;
+	text-decoration: none; cursor: pointer; background: var(--ob-gold); color: var(--ob-ink);
+	transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.ob-bb .wp-block-button__link:hover { background: var(--ob-link); color: #fff; }
+.ob-bb--outline .wp-block-button__link { background: var(--ob-card); border-color: var(--ob-ink); padding-inline: 32px; }
+.ob-bb--outline .wp-block-button__link:hover { background: var(--ob-ink); color: #fff; }
+.ob-cta__btn .wp-block-button__link { padding: 14px 30px; }
+.ob-cta__btn .wp-block-button__link:hover { background: #fff; color: var(--ob-ink); }
+.ob-band--cream { --band: var(--ob-cream); }
+.ob-rule--gold { background: var(--ob-gold); }
+.ob-rule--cream { background: var(--ob-cream); }
+.ob-abouthero__btns.wp-block-buttons, .ob-abouthero__btns { gap: 12px; }
+.ob-pill.ob-pill--gold { margin: 0; width: fit-content; }
