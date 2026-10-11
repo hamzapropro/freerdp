@@ -310,3 +310,10 @@ function ob_home_default_blocks() {
 		. $sc( '[ob_home_newsletter]' )
 		. $sc( '[ob_home_team title="Nos expertes et experts" text="Chaque rubrique est tenue par une personne qui la pratique au quotidien."]' );
 }
+
+/* The homepage URL is not the Accueil page's own URL: purge the whole cache when it is saved. */
+add_action( 'save_post_page', function ( $post_id ) {
+	if ( 'accueil' === get_post_field( 'post_name', $post_id ) ) {
+		do_action( 'litespeed_purge_all' );
+	}
+}, 20 );
