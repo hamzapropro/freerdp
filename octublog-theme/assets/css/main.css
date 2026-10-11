@@ -1030,3 +1030,12 @@ body.ob-lock { overflow: hidden; }
 	.ob-legal__main { max-width: none; }
 }
 @media (max-width: 699px) { .ob-legal__main h2.ob-legal-h { font-size: 21px; } }
+
+/* Cookie banner (Complianz) in the theme's look */
+.cmplz-cookiebanner { font-family: var(--ob-body); line-height: 1.6; }
+.cmplz-cookiebanner .cmplz-title { font-family: var(--ob-display); font-weight: 700; font-size: 20px; color: #fff; text-align: left; }
+.cmplz-cookiebanner .cmplz-btn { font-family: var(--ob-body); font-weight: 600; }
+.cmplz-cookiebanner .cmplz-message { color: #EDE6DC; }
+@media (max-width: 699px) {
+	.cmplz-cookiebanner.cmplz-bottom-right { left: 12px !important; right: 12px !important; bottom: 12px !important; width: auto !important; max-width: none !important; }
+}

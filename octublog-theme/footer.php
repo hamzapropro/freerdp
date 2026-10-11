@@ -60,7 +60,7 @@ $ob_socials = ob_socials();
 			<div class="ob-footer__col">
 				<h2 class="ob-footer__title"><?php esc_html_e( 'Contact', 'octublog' ); ?></h2>
 				<ul class="ob-footer__links">
-					<?php foreach ( (array) get_theme_mod( 'ob_footer_contact', array( 'contact@octublog.com', 'admin@octublog.com', '8 Place Bellecour, 69002 Lyon, France', '+33 1 99 00 24 68' ) ) as $ob_line ) : ?>
+					<?php foreach ( (array) get_theme_mod( 'ob_footer_contact', array( 'contact@octublog.com', 'admin@octublog.com', '8 Place Bellecour, 69002 Lyon, France' ) ) as $ob_line ) : ?>
 						<li>
 							<?php if ( is_email( $ob_line ) ) : ?>
 								<a href="mailto:<?php echo esc_attr( antispambot( $ob_line ) ); ?>"><?php echo esc_html( antispambot( $ob_line ) ); ?></a>

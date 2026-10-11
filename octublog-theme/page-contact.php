@@ -21,7 +21,7 @@ while ( have_posts() ) :
 		array(
 			'emails'  => array( 'contact@octublog.com', 'admin@octublog.com' ),
 			'address' => array( '8 Place Bellecour', '69002 Lyon, France' ),
-			'phone'   => array( '+33 1 99 00 24 68' ),
+			'phone'   => array(),
 		)
 	);
 	$ob_rows = array(
@@ -56,6 +56,7 @@ while ( have_posts() ) :
 		<div class="ob-contact__side">
 			<div class="ob-infocard">
 				<?php foreach ( $ob_rows as $ob_row ) : ?>
+					<?php if ( empty( array_filter( (array) $ob_row['lines'] ) ) ) { continue; } ?>
 					<div class="ob-infocard__row">
 						<span class="ob-infocard__icon"><?php echo ob_icon( $ob_row['icon'], 18 ); // phpcs:ignore ?></span>
 						<div class="ob-infocard__text">
