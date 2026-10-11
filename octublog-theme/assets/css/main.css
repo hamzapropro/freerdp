@@ -1068,3 +1068,5 @@ body.ob-lock { overflow: hidden; }
 .ob-rule--cream { background: var(--ob-cream); }
 .ob-abouthero__btns.wp-block-buttons, .ob-abouthero__btns { gap: 12px; }
 .ob-pill.ob-pill--gold { margin: 0; width: fit-content; }
+/* Core wraps group content in an inner container: let the design's grids see through it. */
+.wp-block-group > .wp-block-group__inner-container { display: contents; }
