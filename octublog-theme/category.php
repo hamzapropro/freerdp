@@ -77,6 +77,12 @@ if ( $ob_feat ) :
 		</div>
 	<?php endif; ?>
 	<?php ob_pagination(); ?>
+	<?php if ( 1 === $ob_paged && ! empty( $ob_rub['long'] ) ) : ?>
+		<div class="ob-seo-text ob-prose" style="<?php echo ob_rub_style( $ob_rub ); // phpcs:ignore ?>">
+			<h2><?php echo esc_html( sprintf( /* translators: %s rubrique */ __( 'À propos de la rubrique %s', 'octublog' ), $ob_term->name ) ); ?></h2>
+			<?php echo $ob_rub['long']; // phpcs:ignore WordPress.Security.EscapeOutput -- sanitised in ob_rubriques(). ?>
+		</div>
+	<?php endif; ?>
 	<div class="ob-mt-section">
 		<?php get_template_part( 'template-parts/newsletter', null, array( 'bg' => $ob_rub['color'] ) ); ?>
 	</div>

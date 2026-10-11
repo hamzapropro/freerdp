@@ -888,3 +888,111 @@ body.ob-lock { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
 	*, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+
+/* ==========================================================================
+   Contact, About, SEO text
+   ========================================================================== */
+.ob-pill--gold { background: var(--ob-gold); font-size: 13px; font-weight: 700; padding: 5px 14px; }
+.ob-eyebrow--gold { color: var(--ob-gold); }
+.ob-pagehero__title--wide { max-width: 900px; letter-spacing: -0.01em; }
+.ob-contact-hero__lead { font-size: 20px; line-height: 1.6; max-width: 620px; text-wrap: pretty; }
+@media (max-width: 699px) { .ob-contact-hero__lead { font-size: 17px; } }
+.ob-page .ob-article__title::first-letter { text-transform: uppercase; }
+
+.ob-contact-hero { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; padding-top: 64px; }
+@media (max-width: 699px) { .ob-contact-hero { padding-top: 32px; } }
+.ob-contact { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 32px; align-items: start; padding-top: 48px; padding-bottom: var(--ob-sec); }
+@media (max-width: 1099px) { .ob-contact { grid-template-columns: minmax(0, 1fr); padding-top: 32px; } }
+.ob-contact__form { background: var(--ob-cream); border-radius: var(--ob-radius); padding: 44px; display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+@media (max-width: 699px) { .ob-contact__form { padding: 24px 20px; } }
+.ob-contact__legal { font-size: 14px; line-height: 1.5; color: var(--ob-text); }
+.ob-contact__legal a { color: var(--ob-link); font-weight: 600; }
+.ob-contact__side { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+
+/* WPForms, restyled to the theme */
+.ob-contact .wpforms-container { margin: 0; }
+.ob-contact .wpforms-container .wpforms-form .wpforms-field { padding: 0 0 18px; }
+.ob-contact .wpforms-container .wpforms-form .wpforms-field-label { font-family: var(--ob-body); font-size: 14px; font-weight: 700; color: var(--ob-ink); margin-bottom: 8px; }
+.ob-contact .wpforms-container .wpforms-form .wpforms-required-label { color: var(--ob-link); }
+.ob-contact .wpforms-container .wpforms-form input[type="text"],
+.ob-contact .wpforms-container .wpforms-form input[type="email"],
+.ob-contact .wpforms-container .wpforms-form input[type="tel"],
+.ob-contact .wpforms-container .wpforms-form select,
+.ob-contact .wpforms-container .wpforms-form textarea {
+	width: 100%; max-width: 100%; font-family: var(--ob-body); font-size: 15px; color: var(--ob-ink);
+	background: #fff; border: 1.5px solid var(--ob-line); border-radius: var(--ob-radius); padding: 13px 18px; height: auto; box-shadow: none;
+}
+.ob-contact .wpforms-container .wpforms-form textarea { min-height: 150px; line-height: 1.6; resize: vertical; }
+.ob-contact .wpforms-container .wpforms-form input:focus,
+.ob-contact .wpforms-container .wpforms-form textarea:focus,
+.ob-contact .wpforms-container .wpforms-form select:focus { border-color: var(--ob-gold); outline: 0; box-shadow: none; }
+.ob-contact .wpforms-container .wpforms-form .wpforms-submit-container { padding: 0; }
+.ob-contact .wpforms-container .wpforms-form button[type="submit"],
+.ob-contact .wpforms-container .wpforms-form .wpforms-submit {
+	font-family: var(--ob-body); font-size: 15px; font-weight: 600; color: var(--ob-ink); background: var(--ob-gold);
+	border: 0; border-radius: var(--ob-radius); padding: 14px 32px; height: auto; cursor: pointer; transition: background .2s ease, color .2s ease;
+}
+.ob-contact .wpforms-container .wpforms-form button[type="submit"]:hover { background: var(--ob-link); color: #fff; }
+.ob-contact .wpforms-confirmation-container-full, .ob-contact .wpforms-confirmation-container { background: #fff; border: 1.5px solid var(--ob-gold); border-radius: var(--ob-radius); color: var(--ob-ink); }
+.ob-contact .wpforms-error, .ob-contact label.wpforms-error { font-size: 13px; }
+
+.ob-infocard { background: var(--ob-dark); color: #EDE6DC; border-radius: var(--ob-radius); padding: 24px 28px; display: flex; flex-direction: column; }
+.ob-infocard__row { display: flex; gap: 16px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--ob-dark-line); }
+.ob-infocard__icon { width: 40px; height: 40px; border-radius: 50%; background: var(--ob-gold); color: var(--ob-ink); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.ob-infocard__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ob-infocard__text a, .ob-infocard__text span:not(.ob-eyebrow) { font-size: 15px; color: #fff; text-decoration: none; overflow-wrap: anywhere; }
+.ob-infocard__text a:hover { color: var(--ob-gold); }
+.ob-infocard__socials { padding-top: 20px; }
+
+.ob-authorlist { background: var(--ob-card); border: 1px solid var(--ob-line); border-radius: var(--ob-radius); padding: 24px 28px; display: flex; flex-direction: column; gap: 6px; }
+.ob-authorlist__title { font-family: var(--ob-display); font-weight: 600; font-size: 22px; color: var(--ob-ink); }
+.ob-authorlist > p { font-size: 14px; margin-bottom: 8px; }
+.ob-authorlist__item { display: flex; align-items: center; gap: 14px; padding: 10px 0; border-top: 1px solid var(--ob-line); text-decoration: none; }
+.ob-authorlist__item:hover { background: var(--ob-cream); }
+.ob-authorlist__item > span { display: flex; flex-direction: column; min-width: 0; line-height: 1.4; }
+.ob-authorlist__item strong { font-size: 15px; color: var(--ob-ink); }
+.ob-authorlist__item em { font-style: normal; font-weight: 400; color: var(--ob-text); }
+.ob-authorlist__item small { font-size: 13px; font-weight: 600; color: var(--ob-link); overflow-wrap: anywhere; }
+.ob-authorlist__item .ob-avatar { width: 44px; height: 44px; }
+
+.ob-abouthero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; padding-block: 80px; }
+.ob-abouthero__text { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; min-width: 0; }
+.ob-abouthero__btns { display: flex; flex-wrap: wrap; gap: 12px; }
+@media (max-width: 1099px) { .ob-abouthero { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-block: 56px; } }
+@media (max-width: 699px) { .ob-abouthero { padding-block: 32px; gap: 28px; } }
+.ob-mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; min-width: 0; }
+.ob-mosaic__item--1 { margin-top: 0; }
+.ob-mosaic__item--2, .ob-mosaic__item--3 { }
+.ob-mosaic__item:nth-child(even) { transform: translateY(48px); }
+@media (max-width: 1099px) { .ob-mosaic__item:nth-child(even) { transform: none; } }
+.ob-introhead { display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; max-width: 640px; }
+.ob-rules { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1099px) { .ob-rules { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 699px) { .ob-rules { grid-template-columns: minmax(0, 1fr); } }
+.ob-rule { display: flex; flex-direction: column; gap: 14px; border-radius: var(--ob-radius); padding: 32px 28px; color: var(--ob-ink); }
+.ob-rule__n { font-family: var(--ob-display); font-weight: 700; font-size: 52px; line-height: 1; }
+.ob-rule h3 { font-family: var(--ob-display); font-weight: 600; font-size: 22px; line-height: 1.25; }
+.ob-rule p { font-size: 15px; line-height: 1.6; color: var(--ob-ink); text-wrap: pretty; }
+.ob-section--content { padding-top: 0; }
+.ob-teamgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1099px) { .ob-teamgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 699px) { .ob-teamgrid { grid-template-columns: minmax(0, 1fr); } }
+.ob-teamcard { display: flex; flex-direction: column; gap: 20px; background: var(--ob-card); border: 1px solid var(--ob-line); border-radius: var(--ob-radius); padding: 28px; text-decoration: none; transition: border-color .2s ease; }
+.ob-teamcard:hover { border-color: var(--ob-gold); }
+.ob-teamcard__top { display: flex; align-items: center; gap: 16px; }
+.ob-teamcard__top > span { display: flex; flex-direction: column; gap: 6px; min-width: 0; align-items: flex-start; }
+.ob-teamcard__top .ob-avatar { width: 72px; height: 72px; }
+.ob-teamcard__name { font-family: var(--ob-display); font-weight: 700; font-size: 20px; line-height: 1.2; color: var(--ob-ink); }
+.ob-teamcard__bio { font-size: 14px; line-height: 1.55; color: var(--ob-text); }
+.ob-cta { background: var(--ob-dark); border-radius: var(--ob-radius); padding: 56px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+.ob-cta__text { display: flex; flex-direction: column; gap: 10px; max-width: 620px; }
+.ob-cta h2 { font-family: var(--ob-display); font-weight: 700; font-size: 34px; line-height: 1.15; color: #fff; }
+.ob-cta p { color: #EDE6DC; }
+.ob-cta__btn { flex-shrink: 0; padding: 14px 30px; }
+.ob-cta__btn:hover { background: #fff; color: var(--ob-ink); }
+@media (max-width: 1099px) { .ob-cta { padding: 40px; } .ob-cta h2 { font-size: 30px; } }
+@media (max-width: 699px) { .ob-cta { flex-direction: column; align-items: stretch; padding: 28px 22px; } .ob-cta h2 { font-size: 26px; } .ob-cta__btn { text-align: center; } }
+
+.ob-seo-text { margin-top: var(--ob-sec); max-width: 860px; padding: 32px; background: var(--rub-tint); border-radius: var(--ob-radius); font-size: 16px; }
+.ob-seo-text h2 { margin-top: 0 !important; font-size: 24px !important; }
+@media (max-width: 699px) { .ob-seo-text { padding: 22px 20px; } }
