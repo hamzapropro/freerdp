@@ -25,24 +25,27 @@ foreach ( array( 'maison-et-organisation', 'enfance-et-famille', 'inspirations-e
 		$ob_cover[] = $ob_found[0];
 	}
 }
-$ob_rules = array(
-	array( 'n' => '01', 't' => __( 'Testé avant d’être conseillé', 'octublog' ), 'd' => __( 'Aucun outil ni produit n’est recommandé sans avoir été utilisé par l’auteur de la rubrique.', 'octublog' ), 'bg' => 'var(--ob-gold)' ),
-	array( 'n' => '02', 't' => __( 'Des budgets réels', 'octublog' ), 'd' => __( 'Un prix réaliste, une méthode précise, un temps honnête. Et une alternative moins chère quand elle existe.', 'octublog' ), 'bg' => 'var(--ob-cream)' ),
-	array( 'n' => '03', 't' => __( 'Les ratés aussi', 'octublog' ), 'd' => __( 'Nos tutoriels montrent les étapes qui coincent, pas seulement le résultat final.', 'octublog' ), 'bg' => 'var(--ob-cream)' ),
-	array( 'n' => '04', 't' => __( 'Sans jugement', 'octublog' ), 'd' => __( 'On écrit pour que vous refermiez la page un peu moins seul, jamais plus jugé.', 'octublog' ), 'bg' => 'var(--ob-cream)' ),
-);
+$ob_rules = array();
+foreach ( array( 1 => 'var(--ob-gold)', 2 => 'var(--ob-cream)', 3 => 'var(--ob-cream)', 4 => 'var(--ob-cream)' ) as $ob_n => $ob_bg ) {
+	$ob_rules[] = array(
+		'n'  => sprintf( '%02d', $ob_n ),
+		't'  => ob_t( 'about', 'r' . $ob_n . '_t' ),
+		'd'  => ob_t( 'about', 'r' . $ob_n . '_d' ),
+		'bg' => $ob_bg,
+	);
+}
 
 while ( have_posts() ) :
 	the_post();
 	?>
 	<section class="ob-wrap ob-abouthero">
 		<div class="ob-abouthero__text">
-			<span class="ob-pill ob-pill--gold"><?php esc_html_e( 'À propos d’Octublog', 'octublog' ); ?></span>
-			<h1 class="ob-pagehero__title ob-pagehero__title--wide"><?php esc_html_e( 'Des idées claires pour simplifier votre quotidien.', 'octublog' ); ?></h1>
-			<p class="ob-contact-hero__lead"><?php esc_html_e( 'Octublog est un magazine où chaque rubrique est confiée à une seule personne. Organisation de la maison, enfants, bien-être, tech, création, voyage : on publie des guides concrets, testés, avec des budgets réels.', 'octublog' ); ?></p>
+			<span class="ob-pill ob-pill--gold"><?php echo esc_html( ob_t( 'about', 'badge' ) ); ?></span>
+			<h1 class="ob-pagehero__title ob-pagehero__title--wide"><?php echo esc_html( ob_t( 'about', 'title' ) ); ?></h1>
+			<p class="ob-contact-hero__lead"><?php echo esc_html( ob_t( 'about', 'lead' ) ); ?></p>
 			<div class="ob-abouthero__btns">
-				<a class="ob-btn ob-btn--gold" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Lire nos guides', 'octublog' ); ?></a>
-				<a class="ob-btn ob-btn--outline" href="#equipe"><?php esc_html_e( 'Rencontrer l’équipe', 'octublog' ); ?></a>
+				<a class="ob-btn ob-btn--gold" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html( ob_t( 'about', 'btn1' ) ); ?></a>
+				<a class="ob-btn ob-btn--outline" href="#equipe"><?php echo esc_html( ob_t( 'about', 'btn2' ) ); ?></a>
 			</div>
 		</div>
 		<?php if ( $ob_cover ) : ?>
@@ -64,8 +67,8 @@ while ( have_posts() ) :
 
 	<section class="ob-wrap ob-section">
 		<div class="ob-introhead">
-			<span class="ob-eyebrow"><?php esc_html_e( 'Notre méthode', 'octublog' ); ?></span>
-			<h2 class="ob-h2"><?php esc_html_e( 'Quatre règles qu’on applique à chaque article', 'octublog' ); ?></h2>
+			<span class="ob-eyebrow"><?php echo esc_html( ob_t( 'about', 'm_eyebrow' ) ); ?></span>
+			<h2 class="ob-h2"><?php echo esc_html( ob_t( 'about', 'm_title' ) ); ?></h2>
 		</div>
 		<div class="ob-rules">
 			<?php foreach ( $ob_rules as $ob_rule ) : ?>
@@ -87,8 +90,8 @@ while ( have_posts() ) :
 	<section class="ob-band" id="equipe" style="--band:var(--ob-cream)">
 		<div class="ob-wrap ob-section">
 			<div class="ob-introhead">
-				<span class="ob-eyebrow"><?php esc_html_e( 'L’équipe', 'octublog' ); ?></span>
-				<h2 class="ob-h2"><?php esc_html_e( 'Une rubrique, une autrice ou un auteur', 'octublog' ); ?></h2>
+				<span class="ob-eyebrow"><?php echo esc_html( ob_t( 'about', 't_eyebrow' ) ); ?></span>
+				<h2 class="ob-h2"><?php echo esc_html( ob_t( 'about', 't_title' ) ); ?></h2>
 			</div>
 			<div class="ob-teamgrid">
 				<?php
@@ -118,11 +121,11 @@ while ( have_posts() ) :
 	<section class="ob-wrap ob-section">
 		<div class="ob-cta">
 			<div class="ob-cta__text">
-				<h2><?php esc_html_e( 'Une question, une idée de sujet ?', 'octublog' ); ?></h2>
-				<p><?php esc_html_e( 'Écrivez à l’équipe ou directement à l’auteur de la rubrique.', 'octublog' ); ?></p>
+				<h2><?php echo esc_html( ob_t( 'about', 'cta_title' ) ); ?></h2>
+				<p><?php echo esc_html( ob_t( 'about', 'cta_text' ) ); ?></p>
 			</div>
 			<?php $ob_contact = get_page_by_path( 'contact' ); ?>
-			<a class="ob-btn ob-btn--gold ob-cta__btn" href="<?php echo esc_url( $ob_contact ? get_permalink( $ob_contact ) : home_url( '/' ) ); ?>"><?php esc_html_e( 'Contactez-nous', 'octublog' ); ?></a>
+			<a class="ob-btn ob-btn--gold ob-cta__btn" href="<?php echo esc_url( $ob_contact ? get_permalink( $ob_contact ) : home_url( '/' ) ); ?>"><?php echo esc_html( ob_t( 'about', 'cta_btn' ) ); ?></a>
 		</div>
 	</section>
 	<?php

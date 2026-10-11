@@ -16,3 +16,4 @@ define( 'OB_URI', get_template_directory_uri() );
 require OB_DIR . '/inc/setup.php';
 require OB_DIR . '/inc/helpers.php';
 require OB_DIR . '/inc/content.php';
+require OB_DIR . '/inc/fields.php';

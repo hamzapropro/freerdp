@@ -16,13 +16,10 @@ while ( have_posts() ) :
 		$ob_form_id = (int) $ob_m[1];
 	}
 	$ob_privacy = get_privacy_policy_url() ?: home_url( '/politique-de-confidentialite/' );
-	$ob_info    = wp_parse_args(
-		(array) get_theme_mod( 'ob_contact_info', array() ),
-		array(
-			'emails'  => array( 'contact@octublog.com', 'admin@octublog.com' ),
-			'address' => array( '8 Place Bellecour', '69002 Lyon, France' ),
-			'phone'   => array(),
-		)
+	$ob_info    = array(
+		'emails'  => ob_t_lines( 'contact', 'emails' ),
+		'address' => ob_t_lines( 'contact', 'address' ),
+		'phone'   => ob_t_lines( 'contact', 'phone' ),
 	);
 	$ob_rows = array(
 		array( 'icon' => 'mail', 'label' => __( 'E-mail', 'octublog' ), 'lines' => $ob_info['emails'], 'mail' => true ),
@@ -31,14 +28,14 @@ while ( have_posts() ) :
 	);
 	?>
 	<section class="ob-wrap ob-contact-hero">
-		<span class="ob-pill ob-pill--gold"><?php esc_html_e( 'Contact', 'octublog' ); ?></span>
-		<h1 class="ob-pagehero__title ob-pagehero__title--wide"><?php esc_html_e( 'Écrivez-nous. On lit tous les messages.', 'octublog' ); ?></h1>
-		<p class="ob-contact-hero__lead"><?php esc_html_e( 'Une question sur un article, une erreur repérée, un sujet que vous aimeriez voir traité ou une proposition de partenariat : envoyez-nous un mot.', 'octublog' ); ?></p>
+		<span class="ob-pill ob-pill--gold"><?php echo esc_html( ob_t( 'contact', 'badge' ) ); ?></span>
+		<h1 class="ob-pagehero__title ob-pagehero__title--wide"><?php echo esc_html( ob_t( 'contact', 'title' ) ); ?></h1>
+		<p class="ob-contact-hero__lead"><?php echo esc_html( ob_t( 'contact', 'lead' ) ); ?></p>
 	</section>
 
 	<section class="ob-wrap ob-contact">
 		<div class="ob-contact__form">
-			<h2 class="ob-h2"><?php esc_html_e( 'Votre message', 'octublog' ); ?></h2>
+			<h2 class="ob-h2"><?php echo esc_html( ob_t( 'contact', 'form_title' ) ); ?></h2>
 			<?php
 			if ( $ob_form_id && shortcode_exists( 'wpforms' ) ) {
 				echo do_shortcode( '[wpforms id="' . $ob_form_id . '" title="false"]' );
@@ -49,7 +46,7 @@ while ( have_posts() ) :
 			<p class="ob-contact__legal">
 				<?php esc_html_e( 'Vos données servent uniquement à répondre à votre demande, conformément à la', 'octublog' ); ?>
 				<a href="<?php echo esc_url( $ob_privacy ); ?>"><?php esc_html_e( 'politique de confidentialité', 'octublog' ); ?></a>.
-				<?php esc_html_e( 'Nous répondons sous 24 à 48 heures ouvrées.', 'octublog' ); ?>
+				<?php echo esc_html( ob_t( 'contact', 'note' ) ); ?>
 			</p>
 		</div>
 
@@ -79,8 +76,8 @@ while ( have_posts() ) :
 			</div>
 
 			<div class="ob-authorlist">
-				<h2 class="ob-authorlist__title"><?php esc_html_e( 'Écrire à un auteur', 'octublog' ); ?></h2>
-				<p><?php esc_html_e( 'Pour une question sur une rubrique précise.', 'octublog' ); ?></p>
+				<h2 class="ob-authorlist__title"><?php echo esc_html( ob_t( 'contact', 'a_title' ) ); ?></h2>
+				<p><?php echo esc_html( ob_t( 'contact', 'a_text' ) ); ?></p>
 				<?php
 				foreach ( ob_rubriques() as $ob_rub ) :
 					$ob_person = ob_author_by_slug( $ob_rub['author'] );

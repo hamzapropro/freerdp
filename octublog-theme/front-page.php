@@ -54,7 +54,7 @@ $ob_sections = array(
 <section class="ob-wrap ob-hero">
 	<div class="ob-shead ob-shead--rule">
 		<span class="ob-shead__num" aria-hidden="true">01</span>
-		<h2 class="ob-h2 ob-nowrap"><?php esc_html_e( 'À la une', 'octublog' ); ?></h2>
+		<h2 class="ob-h2 ob-nowrap"><?php echo esc_html( ob_t( 'home', 'hero_title' ) ); ?></h2>
 		<span class="ob-shead__rule" aria-hidden="true"></span>
 	</div>
 
@@ -84,7 +84,7 @@ $ob_sections = array(
 		<?php endif; ?>
 
 		<div class="ob-recent">
-			<div class="ob-recent__title"><?php esc_html_e( 'Récemment publiés', 'octublog' ); ?></div>
+			<div class="ob-recent__title"><?php echo esc_html( ob_t( 'home', 'recent_title' ) ); ?></div>
 			<?php
 			foreach ( $ob_recent as $ob_p ) :
 				$ob_cat    = ob_post_category( $ob_p );
@@ -142,7 +142,7 @@ $ob_sections = array(
 </section>
 
 <section class="ob-wrap ob-section">
-	<?php ob_section_head( '02', __( 'Derniers articles', 'octublog' ) ); ?>
+	<?php ob_section_head( '02', ob_t( 'home', 'latest_title' ) ); ?>
 	<div class="ob-grid ob-grid--3 ob-grid--tall">
 		<?php
 		foreach ( $ob_latest as $ob_p ) {
@@ -151,7 +151,7 @@ $ob_sections = array(
 		?>
 	</div>
 	<div class="ob-center ob-mt-56">
-		<a class="ob-btn ob-btn--outline" href="<?php echo esc_url( get_pagenum_link( 2 ) ); ?>"><?php esc_html_e( 'Voir plus d’articles', 'octublog' ); ?></a>
+		<a class="ob-btn ob-btn--outline" href="<?php echo esc_url( get_pagenum_link( 2 ) ); ?>"><?php echo esc_html( ob_t( 'home', 'more_btn' ) ); ?></a>
 	</div>
 </section>
 
@@ -170,7 +170,7 @@ foreach ( $ob_sections as $ob_section ) :
 	$ob_feature = 'feature' === $ob_section['layout'];
 
 	if ( ! empty( $ob_section['quote'] ) && $ob_owner ) :
-		$ob_quote = get_theme_mod( 'ob_home_quote', 'Il n’existe pas de méthode parentale universelle.' );
+		$ob_quote = ob_t( 'home', 'quote' );
 		?>
 		<section class="ob-quote">
 			<div class="ob-quote__inner">
@@ -194,7 +194,7 @@ foreach ( $ob_sections as $ob_section ) :
 					$ob_feature ? $ob_rub['color'] : ''
 				);
 				?>
-				<a class="ob-seeall" href="<?php echo esc_url( $ob_rub['url'] ); ?>"><?php esc_html_e( 'Voir tout', 'octublog' ); ?> →</a>
+				<a class="ob-seeall" href="<?php echo esc_url( $ob_rub['url'] ); ?>"><?php echo esc_html( ob_t( 'home', 'see_all' ) ); ?> →</a>
 			</div>
 
 			<?php if ( $ob_feature ) : ?>
@@ -237,8 +237,8 @@ foreach ( $ob_sections as $ob_section ) :
 <section class="ob-wrap ob-section">
 	<div class="ob-shead ob-shead--center">
 		<span class="ob-shead__num" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $ob_num ) ); ?></span>
-		<h2 class="ob-h2"><?php esc_html_e( 'Nos expertes et experts', 'octublog' ); ?></h2>
-		<p><?php esc_html_e( 'Chaque rubrique est tenue par une personne qui la pratique au quotidien.', 'octublog' ); ?></p>
+		<h2 class="ob-h2"><?php echo esc_html( ob_t( 'home', 'team_title' ) ); ?></h2>
+		<p><?php echo esc_html( ob_t( 'home', 'team_text' ) ); ?></p>
 	</div>
 	<div class="ob-team">
 		<?php
