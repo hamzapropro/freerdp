@@ -1039,3 +1039,12 @@ body.ob-lock { overflow: hidden; }
 @media (max-width: 699px) {
 	.cmplz-cookiebanner.cmplz-bottom-right { left: 12px !important; right: 12px !important; bottom: 12px !important; width: auto !important; max-width: none !important; }
 }
+
+/* Rubrique intro: real description, shortened to 3 lines with a "read more" toggle */
+.ob-clamp { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.ob-clamp__body > p + p { margin-top: 8px; }
+.ob-clamp.is-js .ob-clamp__body { max-height: calc(1.6em * 3); overflow: hidden; -webkit-mask-image: linear-gradient(#000 60%, transparent); mask-image: linear-gradient(#000 60%, transparent); }
+.ob-clamp.is-js.is-open .ob-clamp__body { max-height: none; -webkit-mask-image: none; mask-image: none; }
+.ob-clamp:not(.is-clamped) .ob-clamp__body { -webkit-mask-image: none !important; mask-image: none !important; }
+.ob-clamp__btn { font-family: var(--ob-body); font-size: 14px; font-weight: 700; color: var(--ob-ink); background: none; border: 0; padding: 4px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+.ob-clamp__btn:hover { color: var(--ob-link); }

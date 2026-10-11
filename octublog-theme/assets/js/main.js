@@ -176,4 +176,23 @@
 			window.scrollTo( { top: 0, behavior: 'smooth' } );
 		} );
 	}
+
+	/* Rubrique description: clamp to three lines, expandable. */
+	document.querySelectorAll( '[data-ob-clamp]' ).forEach( function ( box ) {
+		var body = box.querySelector( '.ob-clamp__body' );
+		var btn = box.querySelector( '.ob-clamp__btn' );
+		if ( ! body || ! btn ) {
+			return;
+		}
+		box.classList.add( 'is-js' );
+		if ( body.scrollHeight > body.clientHeight + 4 ) {
+			box.classList.add( 'is-clamped' );
+			btn.hidden = false;
+			btn.addEventListener( 'click', function () {
+				var open = box.classList.toggle( 'is-open' );
+				btn.setAttribute( 'aria-expanded', open ? 'true' : 'false' );
+				btn.textContent = open ? 'Réduire' : 'Lire la suite';
+			} );
+		}
+	} );
 }() );

@@ -27,7 +27,12 @@ $ob_feat  = ( 1 === $ob_paged && $ob_posts ) ? array_shift( $ob_posts ) : null;
 				<span class="ob-bigicon"><?php echo ob_icon( $ob_rub['icon'], 28 ); // phpcs:ignore ?></span>
 				<h1 class="ob-pagehero__title"><?php echo esc_html( $ob_term->name ); ?><?php echo $ob_paged > 1 ? '<span class="screen-reader-text"> – ' . esc_html( sprintf( __( 'page %d', 'octublog' ), $ob_paged ) ) . '</span>' : ''; ?></h1>
 			</div>
-			<?php if ( $ob_rub['desc'] ) : ?>
+			<?php if ( 1 === $ob_paged && ! empty( $ob_rub['long'] ) ) : ?>
+				<div class="ob-clamp" data-ob-clamp>
+					<div class="ob-clamp__body ob-pagehero__lead" id="ob-rub-desc"><?php echo $ob_rub['long']; // phpcs:ignore WordPress.Security.EscapeOutput -- sanitised in ob_rubriques(). ?></div>
+					<button class="ob-clamp__btn" type="button" aria-expanded="false" aria-controls="ob-rub-desc" hidden><?php esc_html_e( 'Lire la suite', 'octublog' ); ?></button>
+				</div>
+			<?php elseif ( $ob_rub['desc'] ) : ?>
 				<p class="ob-pagehero__lead"><?php echo esc_html( $ob_rub['desc'] ); ?></p>
 			<?php endif; ?>
 		</div>
@@ -77,12 +82,6 @@ if ( $ob_feat ) :
 		</div>
 	<?php endif; ?>
 	<?php ob_pagination(); ?>
-	<?php if ( 1 === $ob_paged && ! empty( $ob_rub['long'] ) ) : ?>
-		<div class="ob-seo-text ob-prose" style="<?php echo ob_rub_style( $ob_rub ); // phpcs:ignore ?>">
-			<h2><?php echo esc_html( sprintf( /* translators: %s rubrique */ __( 'À propos de la rubrique %s', 'octublog' ), $ob_term->name ) ); ?></h2>
-			<?php echo $ob_rub['long']; // phpcs:ignore WordPress.Security.EscapeOutput -- sanitised in ob_rubriques(). ?>
-		</div>
-	<?php endif; ?>
 	<div class="ob-mt-section">
 		<?php get_template_part( 'template-parts/newsletter', null, array( 'bg' => $ob_rub['color'] ) ); ?>
 	</div>
