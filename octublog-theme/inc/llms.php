@@ -12,6 +12,9 @@
  * @return string
  */
 function ob_llms_build() {
+	$d    = function ( $text ) {
+		return html_entity_decode( wp_strip_all_tags( (string) $text ), ENT_QUOTES, 'UTF-8' );
+	};
 	$name = get_bloginfo( 'name' );
 	$home = home_url( '/' );
 	$out  = '# ' . $name . "\n\n";
@@ -21,7 +24,7 @@ function ob_llms_build() {
 	$out .= "## Rubriques\n\n";
 	$rubs = ob_rubriques();
 	foreach ( $rubs as $rub ) {
-		$out .= '- [' . $rub['name'] . '](' . $rub['url'] . ')' . ( $rub['desc'] ? ': ' . $rub['desc'] : '' ) . "\n";
+		$out .= '- [' . $d( $rub['name'] ) . '](' . $rub['url'] . ')' . ( $rub['desc'] ? ': ' . $d( $rub['desc'] ) : '' ) . "\n";
 	}
 
 	$out .= "\n## Pages principales\n\n";
@@ -29,7 +32,7 @@ function ob_llms_build() {
 	foreach ( array( 'a-propos-de-nous' => 'présentation du magazine et de son équipe', 'contact' => 'écrire à la rédaction' ) as $slug => $desc ) {
 		$page = get_page_by_path( $slug );
 		if ( $page ) {
-			$out .= '- [' . get_the_title( $page ) . '](' . get_permalink( $page ) . '): ' . $desc . "\n";
+			$out .= '- [' . $d( get_the_title( $page ) ) . '](' . get_permalink( $page ) . '): ' . $desc . "\n";
 		}
 	}
 
@@ -42,10 +45,10 @@ function ob_llms_build() {
 		if ( empty( $by[ $slug ] ) ) {
 			continue;
 		}
-		$out .= "\n## " . $rub['name'] . "\n\n";
+		$out .= "\n## " . $d( $rub['name'] ) . "\n\n";
 		foreach ( $by[ $slug ] as $p ) {
 			$desc = trim( preg_replace( '/\s+/', ' ', (string) get_post_meta( $p->ID, '_yoast_wpseo_metadesc', true ) ) );
-			$out .= '- [' . str_replace( array( '[', ']' ), '', get_the_title( $p ) ) . '](' . get_permalink( $p ) . ')' . ( $desc ? ': ' . $desc : '' ) . "\n";
+			$out .= '- [' . str_replace( array( '[', ']' ), '', $d( get_the_title( $p ) ) ) . '](' . get_permalink( $p ) . ')' . ( $desc ? ': ' . $d( $desc ) : '' ) . "\n";
 		}
 	}
 
@@ -53,7 +56,7 @@ function ob_llms_build() {
 	foreach ( ob_legal_slugs() as $slug ) {
 		$page = get_page_by_path( $slug );
 		if ( $page ) {
-			$out .= '- [' . get_the_title( $page ) . '](' . get_permalink( $page ) . ")\n";
+			$out .= '- [' . $d( get_the_title( $page ) ) . '](' . get_permalink( $page ) . ")\n";
 		}
 	}
 
