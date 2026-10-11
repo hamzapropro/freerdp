@@ -1,6 +1,6 @@
 <?php
 /**
- * About page: designed hero, method cards, the page's own text, team and contact call.
+ * About page: designed hero, method cards, team and contact call (texts editable in the page panel).
  *
  * @package Octublog
  */
@@ -80,12 +80,6 @@ while ( have_posts() ) :
 			<?php endforeach; ?>
 		</div>
 	</section>
-
-	<?php if ( trim( wp_strip_all_tags( get_the_content() ) ) ) : ?>
-		<section class="ob-wrap ob-wrap--article ob-section ob-section--content">
-			<div class="ob-prose ob-page__body"><?php the_content(); ?></div>
-		</section>
-	<?php endif; ?>
 
 	<section class="ob-band" id="equipe" style="--band:var(--ob-cream)">
 		<div class="ob-wrap ob-section">
