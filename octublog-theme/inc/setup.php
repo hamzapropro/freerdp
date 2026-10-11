@@ -98,3 +98,11 @@ add_filter( 'found_posts', function ( $found, $query ) {
 	$pages = $found <= OB_CAT_FIRST ? 1 : 1 + (int) ceil( ( $found - OB_CAT_FIRST ) / OB_CAT_PER );
 	return $pages * (int) $query->get( 'posts_per_page' );
 }, 10, 2 );
+
+// The former Tech author no longer appears on the site: his archive redirects to the current Tech author.
+add_action( 'template_redirect', function () {
+	if ( is_author() && 'jozef' === (string) get_query_var( 'author_name' ) ) {
+		wp_safe_redirect( home_url( '/author/lucas-moreau/' ), 301 );
+		exit;
+	}
+} );
