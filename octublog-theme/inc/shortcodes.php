@@ -136,3 +136,51 @@ add_shortcode(
 		return $html;
 	}
 );
+
+/** [ob_sitemap] Human-readable site map: rubriques with their articles, then the pages. */
+add_shortcode(
+	'ob_sitemap',
+	function () {
+		$by = array();
+		foreach ( get_posts( array( 'numberposts' => -1, 'post_status' => 'publish', 'orderby' => 'date', 'order' => 'DESC', 'no_found_rows' => true ) ) as $p ) {
+			$cat = ob_post_category( $p );
+			$by[ $cat ? $cat->slug : 'autres' ][] = $p;
+		}
+		$html = '<div class="ob-sitemap">';
+		foreach ( ob_rubriques() as $slug => $rub ) {
+			if ( empty( $by[ $slug ] ) ) {
+				continue;
+			}
+			$html .= '<section class="ob-sitemap__block" style="' . ob_rub_style( $rub ) . '">'
+				. '<h2 class="ob-sitemap__title"><a href="' . esc_url( $rub['url'] ) . '">' . esc_html( $rub['name'] ) . '</a> <span>' . count( $by[ $slug ] ) . '</span></h2><ul>';
+			foreach ( $by[ $slug ] as $p ) {
+				$html .= '<li><a href="' . esc_url( get_permalink( $p ) ) . '">' . esc_html( html_entity_decode( get_the_title( $p ), ENT_QUOTES, 'UTF-8' ) ) . '</a></li>';
+			}
+			$html .= '</ul></section>';
+		}
+		$pages = get_pages( array( 'sort_column' => 'menu_order,post_title', 'exclude' => array_filter( array( (int) get_option( 'page_on_front' ), (int) ( get_page_by_path( 'accueil' )->ID ?? 0 ), (int) ( get_page_by_path( 'plan-du-site' )->ID ?? 0 ) ) ) ) );
+		if ( $pages ) {
+			$html .= '<section class="ob-sitemap__block"><h2 class="ob-sitemap__title">' . esc_html__( 'Pages', 'octublog' ) . '</h2><ul>';
+			foreach ( $pages as $page ) {
+				$html .= '<li><a href="' . esc_url( get_permalink( $page ) ) . '">' . esc_html( get_the_title( $page ) ) . '</a></li>';
+			}
+			$html .= '</ul></section>';
+		}
+		return $html . '</div>';
+	}
+);
+
+/* Keep the site map page fresh when an article is published or changed. */
+add_action(
+	'transition_post_status',
+	function ( $new, $old, $post ) {
+		if ( 'post' === $post->post_type && ( 'publish' === $new || 'publish' === $old ) ) {
+			$page = get_page_by_path( 'plan-du-site' );
+			if ( $page ) {
+				do_action( 'litespeed_purge_post', $page->ID );
+			}
+		}
+	},
+	10,
+	3
+);

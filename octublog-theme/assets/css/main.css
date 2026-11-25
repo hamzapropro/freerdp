@@ -1083,3 +1083,14 @@ body.ob-lock { overflow: hidden; }
 .ob-pill.ob-pill--gold { margin: 0; width: fit-content; }
 /* Core wraps group content in an inner container: let the design's grids see through it. */
 .wp-block-group > .wp-block-group__inner-container { display: contents; }
+
+/* HTML site map page */
+.ob-sitemap { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 24px; }
+@media (max-width: 699px) { .ob-sitemap { grid-template-columns: minmax(0, 1fr); } }
+.ob-sitemap__block { background: var(--rub-tint, var(--ob-cream)); border-radius: var(--ob-radius); padding: 24px 28px; min-width: 0; }
+.ob-sitemap__title { font-family: var(--ob-display); font-weight: 700; font-size: 22px; line-height: 1.2; margin: 0 0 12px; display: flex; align-items: baseline; gap: 10px; }
+.ob-sitemap__title a { color: var(--ob-ink); text-decoration: none; }
+.ob-sitemap__title span { font-family: var(--ob-body); font-size: 13px; font-weight: 600; color: var(--ob-text); }
+.ob-sitemap ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.ob-sitemap li a { font-size: 15px; line-height: 1.4; color: var(--ob-text); text-decoration: none; overflow-wrap: anywhere; }
+.ob-sitemap li a:hover { color: var(--ob-link); text-decoration: underline; }
