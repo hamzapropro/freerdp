@@ -57,7 +57,6 @@ add_action(
 			return;
 		}
 		$xml->registerXPathNamespace( 's', 'http://www.sitemaps.org/schemas/sitemap/0.9' );
-		$xml->registerXPathNamespace( 'i', 'http://www.google.com/schemas/sitemap-image/1.1' );
 		$fmt   = function ( $d ) {
 			$t = strtotime( (string) $d );
 			return $t ? gmdate( 'Y-m-d H:i', $t ) . ' UTC' : '';
@@ -78,7 +77,7 @@ add_action(
 			$urls = $xml->xpath( '//s:url' );
 			foreach ( $urls as $n ) {
 				$loc   = (string) $n->children()->loc;
-				$imgs  = count( $n->xpath( 'i:image' ) );
+				$imgs  = count( $n->children( 'http://www.google.com/schemas/sitemap-image/1.1' )->image );
 				$rows .= '<tr><td><a href="' . esc_url( $loc ) . '">' . esc_html( $loc ) . '</a></td><td>' . (int) $imgs . '</td><td>' . esc_html( $fmt( $n->children()->lastmod ) ) . '</td></tr>';
 			}
 			$title = 'Plan du site XML';
