@@ -6,20 +6,19 @@ Notre équipe compte **7 auteurs**, chacun responsable d'une catégorie éditori
 
 ---
 
-## 🗂️ Structure du site : catégories principales et sous-catégories
+## 🗂️ Structure du site : les catégories
 
-Le site est organisé en **catégories principales**, chacune confiée à un auteur. **Chaque auteur écrit uniquement dans sa catégorie principale et dans toutes les sous-catégories qui en dépendent.** Un article appartient à une sous-catégorie, donc à une catégorie principale, donc à un seul auteur. **Chaque sous-catégorie a son propre plan de contenu** (article pilier + articles clusters).
+Le site est organisé en **catégories**, chacune confiée à un auteur. **Chaque auteur écrit uniquement dans sa catégorie.** Un article appartient à une catégorie, donc à un seul auteur.
 
-| # | Catégorie principale | Sous-catégories | Auteur |
-|---|---|---|---|
-| 1 | 👶 **Enfance & Famille** | Coiffures cheveux afro & crépus, Coiffures garçon, Coiffures de cérémonie (mariage), Coiffures faciles du quotidien, Cheveux courts | par Camille Vasseur |
-| 2 | 🧘 **Inspirations & Bien-être** | Citations sur la vie, Citations réflexion & profondes, Citations touchantes, Citations positives & motivantes, Citation du jour | par Léa Simon |
-| 3 | 🏠 **Maison & Organisation** | Tiroirs & couverts, Placards & garde-manger, Sous évier, Petite cuisine, Plan de travail & électroménager, Conservation des aliments | par Inès Mercier |
-| 4 | 💻 **Vie Digitale & Tech** | IA image & photo, IA voix & audio, IA texte, WordPress & sites web, Webmail académique & ENT, Noms de domaine & hébergement, Présentations & outils IA | par Lucas Moreau |
-| 5 | 🎨 **Loisirs Créatifs & Dessin** | Dessin facile pour débutants, Idées de dessin (mignon, cute, mini, rigolo), Tutoriels & bases, Inspiration & panne d'idées | par Manon Picard |
-| 6 | ✈️ **Voyage & Évasion** | Carnets de voyage & aquarelle, Affiches & illustrations de voyage, Déco thème voyage, Inspiration & style de voyage, Photos & fonds d'écran | par Chloe Bartoli |
-| 7 | 🍳 **Cuisine & Recettes** | Recettes du quotidien, Plats de famille, Techniques de base | par Thomas Dubois |
-
+| # | Catégorie | Auteur |
+|---|---|---|
+| 1 | 👶 **Enfance & Famille** | par Camille Vasseur |
+| 2 | 🧘 **Inspirations & Bien-être** | par Léa Simon |
+| 3 | 🏠 **Maison & Organisation** | par Inès Mercier |
+| 4 | 💻 **Vie Digitale & Tech** | par Lucas Moreau |
+| 5 | 🎨 **Loisirs Créatifs & Dessin** | par Manon Picard |
+| 6 | ✈️ **Voyage & Évasion** | par Chloe Bartoli |
+| 7 | 🍳 **Cuisine & Recettes** | par Thomas Dubois |
 
 ---
 
@@ -34,11 +33,11 @@ Le site est organisé en **catégories principales**, chacune confiée à un aut
 
 Camille est psychologue de formation, spécialisée en développement de l'enfant. Elle a passé plusieurs années en PMI et en crèche avant de se consacrer à l'écriture à temps plein. Cette expérience de terrain lui a appris qu'il n'y a pas de méthode unique : elle écrit avec cette idée en tête et pour chaque famille.
 
-**📂 Catégorie de compétence:**
+**📂 Catégorie:**
 
-| Catégorie principale | Sous-catégories |
-|---|---|
-| 👶 **Enfance & Famille** | Coiffures cheveux afro & crépus, Coiffures garçon, Coiffures de cérémonie, Coiffures faciles du quotidien, Cheveux courts |
+| Catégorie |
+|---|
+| 👶 **Enfance & Famille** |
 
 **💪 Points forts:** développement de l'enfant, gestes simples pour le quotidien, coiffures pour tous les types de cheveux (dont crépus et afro).
 
@@ -63,11 +62,11 @@ Des guides étape par étape, très concrets, qui partent d'une situation réell
 
 Léa est psychologue, certifiée en pleine conscience. Elle a découvert cette discipline à seize ans, à une période où l'anxiété prenait beaucoup de place dans sa vie. Ce détour personnel est devenu son métier.
 
-**📂 Catégorie de compétence:**
+**📂 Catégorie:**
 
-| Catégorie principale | Sous-catégories |
-|---|---|
-| 🧘 **Inspirations & Bien-être** | Citations sur la vie, Citations réflexion & profondes, Citations touchantes, Citations positives & motivantes, Citation du jour |
+| Catégorie |
+|---|
+| 🧘 **Inspirations & Bien-être** |
 
 **💪 Points forts:** pleine conscience, psychologie du quotidien, mots justes et sans faux optimisme.
 
@@ -92,11 +91,11 @@ Des sélections de citations organisées par thème et par moment de vie, avec u
 
 Inès est diplômée de l'École Camondo en design d'intérieur. Elle a travaillé plusieurs années en agence avant de se consacrer entièrement à l'écriture.
 
-**📂 Catégorie de compétence:**
+**📂 Catégorie:**
 
-| Catégorie principale | Sous-catégories |
-|---|---|
-| 🏠 **Maison & Organisation** | Tiroirs & couverts, Placards & garde-manger, Sous évier, Petite cuisine, Plan de travail & électroménager, Conservation des aliments |
+| Catégorie |
+|---|
+| 🏠 **Maison & Organisation** |
 
 **💪 Points forts:** design d'intérieur, méthode de rangement, solutions durables et mesurées (IKEA, petits espaces).
 
@@ -121,11 +120,11 @@ Des méthodes zone par zone, avec des mesures, des critères et les erreurs à �
 
 Lucas signe la rubrique Vie Digitale & Tech d'Octublog : smartphones, accessoires, applications, productivité et outils du quotidien numérique. Il écrit pour celles et ceux qui utilisent la technologie tous les jours sans être experts.
 
-**📂 Catégorie de compétence:**
+**📂 Catégorie:**
 
-| Catégorie principale | Sous-catégories |
-|---|---|
-| 💻 **Vie Digitale & Tech** | IA image & photo, IA voix & audio, IA texte, WordPress & sites web, Webmail académique & ENT, Noms de domaine & hébergement, Présentations & outils IA |
+| Catégorie |
+|---|
+| 💻 **Vie Digitale & Tech** |
 
 **💪 Points forts:** outils IA (image, voix, texte), WordPress et création de site, services en ligne du quotidien (webmail académique, ENT, banque en ligne).
 
@@ -150,11 +149,11 @@ Des guides et comparatifs d'outils testés, avec prix vérifiés, étapes préci
 
 Manon est autodidacte : elle n'a jamais suivi de formation d'art officielle. Sa mère cousait, son père bricolait, et elle a grandi avec l'idée que faire les choses de ses mains n'est pas réservé à ceux qui savent déjà. Sa rubrique couvre le dessin, la peinture, la couture, le tricot, le DIY et la restauration de meubles.
 
-**📂 Catégorie de compétence:**
+**📂 Catégorie:**
 
-| Catégorie principale | Sous-catégories |
-|---|---|
-| 🎨 **Loisirs Créatifs & Dessin** | Dessin facile pour débutants, Idées de dessin (mignon, cute, mini, rigolo), Tutoriels & bases, Inspiration & panne d'idées |
+| Catégorie |
+|---|
+| 🎨 **Loisirs Créatifs & Dessin** |
 
 **💪 Points forts:** pédagogie pour débutants, dessin accessible sans formation, méthode progressive.
 
@@ -179,11 +178,11 @@ Des idées classées par niveau, budget et temps, des tutoriels pas à pas et de
 
 Chloe est née à Bastia, fille d'un pêcheur et d'une commerçante, et a grandi avec la mer comme premier terrain d'apprentissage. Elle a commencé à écrire sur le voyage presque par accident, pendant le confinement de 2020, en redécouvrant sa propre île avec un regard neuf.
 
-**📂 Catégorie de compétence:**
+**📂 Catégorie:**
 
-| Catégorie principale | Sous-catégories |
-|---|---|
-| ✈️ **Voyage & Évasion** | Carnets de voyage & aquarelle, Affiches & illustrations de voyage, Déco thème voyage, Inspiration & style de voyage, Photos & fonds d'écran |
+| Catégorie |
+|---|
+| ✈️ **Voyage & Évasion** |
 
 **💪 Points forts:** regard sensible sur les lieux, carnets et illustration de voyage, ambiances et décoration inspirées des voyages.
 
@@ -208,11 +207,11 @@ Des guides d'inspiration, souvent visuels (idées classées par style, palette o
 
 Thomas est originaire de Lille. Il a un CAP cuisine, un bac pro et plusieurs années en brasserie lilloise. Il a compris que ce qu'il aimait n'était pas la pression du service.
 
-**📂 Catégorie de compétence:**
+**📂 Catégorie:**
 
-| Catégorie principale | Sous-catégories |
-|---|---|
-| 🍳 **Cuisine & Recettes** | Recettes du quotidien, Plats de famille, Techniques de base |
+| Catégorie |
+|---|
+| 🍳 **Cuisine & Recettes** |
 
 **💪 Points forts:** cuisine de famille, formation professionnelle, transmission.
 
@@ -234,53 +233,12 @@ Des recettes accessibles et des techniques de base, expliquées sans jargon, ave
 
 ```
 ENFANCE & FAMILLE                   → Camille Vasseur
-├── Coiffures cheveux afro & crépus
-├── Coiffures garçon
-├── Coiffures de cérémonie
-├── Coiffures faciles du quotidien
-└── Cheveux courts
-
 INSPIRATIONS & BIEN-ÊTRE            → Léa Simon
-├── Citations sur la vie
-├── Citations réflexion & profondes
-├── Citations touchantes
-├── Citations positives & motivantes
-└── Citation du jour
-
 MAISON & ORGANISATION               → Inès Mercier
-├── Tiroirs & couverts
-├── Placards & garde-manger
-├── Sous évier
-├── Petite cuisine
-├── Plan de travail & électroménager
-└── Conservation des aliments
-
 VIE DIGITALE & TECH                 → Lucas Moreau
-├── IA image & photo
-├── IA voix & audio
-├── IA texte
-├── WordPress & sites web
-├── Webmail académique & ENT
-├── Noms de domaine & hébergement
-└── Présentations & outils IA
-
 LOISIRS CRÉATIFS & DESSIN           → Manon Picard
-├── Dessin facile pour débutants
-├── Idées de dessin
-├── Tutoriels & bases
-└── Inspiration & panne d'idées
-
 VOYAGE & ÉVASION                    → Chloe Bartoli
-├── Carnets de voyage & aquarelle
-├── Affiches & illustrations de voyage
-├── Déco thème voyage
-├── Inspiration & style de voyage
-└── Photos & fonds d'écran
-
 CUISINE & RECETTES                  → Thomas Dubois
-├── Recettes du quotidien
-├── Plats de famille
-└── Techniques de base
 ```
 
 ---
