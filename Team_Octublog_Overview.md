@@ -2,12 +2,7 @@
 
 **Octublog** est le magazine du quotidien qui apporte des idées claires pour simplifier la vie : organisation de la maison, enfance et famille, inspirations et bien-être, loisirs créatifs, voyage et vie digitale. Chaque rubrique est confiée à **un seul auteur ou une seule autrice**, avec sa spécialité, son regard et sa façon de parler à la lectrice et au lecteur. Le ton commun : des guides concrets, testés, avec des critères précis plutôt que des superlatifs, et les limites de chaque solution indiquées honnêtement.
 
-Ce document est établi **à partir des 211 articles actuellement publiés** sur octublog.com. L'équipe compte **6 auteurs en activité** et **1 rubrique en préparation** (Cuisine & Recettes).
-
-> ℹ️ **À lire avant de s'en servir**
-> - Les **catégories principales** et les **auteurs** correspondent à ce qui existe dans WordPress aujourd'hui.
-> - Les **sous-catégories** n'existent pas encore dans WordPress (il n'y a que des catégories principales). Elles sont **proposées ici** en regroupant les articles déjà publiés par thème ; elles servent de base aux plans de contenu (piliers et clusters).
-> - Les âges, les citations et les « sujets envisagés » sont des **propositions à valider** : seules les informations de biographie déjà présentes sur le site ont été reprises.
+Notre équipe compte **7 auteurs**, chacun responsable d'une catégorie éditoriale. Ensemble, ils couvrent tout l'univers du quotidien, de la maison à la famille, du bien-être au numérique.
 
 ---
 
@@ -15,17 +10,16 @@ Ce document est établi **à partir des 211 articles actuellement publiés** sur
 
 Le site est organisé en **catégories principales**, chacune confiée à un auteur. **Chaque auteur écrit uniquement dans sa catégorie principale et dans toutes les sous-catégories qui en dépendent.** Un article appartient à une sous-catégorie, donc à une catégorie principale, donc à un seul auteur. **Chaque sous-catégorie a son propre plan de contenu** (article pilier + articles clusters).
 
-| # | Catégorie principale | Articles publiés | Sous-catégories proposées | Auteur |
-|---|---|---|---|---|
-| 1 | 👶 **Enfance & Famille** | 15 | Coiffures cheveux afro & crépus, Coiffures garçon, Coiffures de cérémonie (mariage), Coiffures faciles du quotidien, Cheveux courts | par Camille Vasseur |
-| 2 | 🧘 **Inspirations & Bien-être** | 18 | Citations sur la vie, Citations réflexion & profondes, Citations touchantes, Citations positives & motivantes, Citation du jour | par Léa Simon |
-| 3 | 🏠 **Maison & Organisation** | 33 | Tiroirs & couverts, Placards & garde-manger, Sous évier, Petite cuisine, Plan de travail & électroménager, Conservation des aliments | par Inès Mercier |
-| 4 | 💻 **Vie Digitale & Tech** | 105 | IA image & photo, IA voix & audio, IA texte, WordPress & sites web, Webmail académique & ENT, Noms de domaine & hébergement, Présentations & outils IA | par Lucas Moreau |
-| 5 | 🎨 **Loisirs Créatifs & Dessin** | 19 | Dessin facile pour débutants, Idées de dessin (mignon, cute, mini, rigolo), Tutoriels & bases, Inspiration & panne d'idées | par Manon Picard |
-| 6 | ✈️ **Voyage & Évasion** | 21 | Carnets de voyage & aquarelle, Affiches & illustrations de voyage, Déco thème voyage, Inspiration & style de voyage, Photos & fonds d'écran | par Chloe Bartoli |
-| 7 | 🍳 **Cuisine & Recettes** *(en préparation)* | 0 | Recettes du quotidien, Plats de famille, Techniques de base | par Thomas Dubois |
+| # | Catégorie principale | Sous-catégories | Auteur |
+|---|---|---|---|
+| 1 | 👶 **Enfance & Famille** | Coiffures cheveux afro & crépus, Coiffures garçon, Coiffures de cérémonie (mariage), Coiffures faciles du quotidien, Cheveux courts | par Camille Vasseur |
+| 2 | 🧘 **Inspirations & Bien-être** | Citations sur la vie, Citations réflexion & profondes, Citations touchantes, Citations positives & motivantes, Citation du jour | par Léa Simon |
+| 3 | 🏠 **Maison & Organisation** | Tiroirs & couverts, Placards & garde-manger, Sous évier, Petite cuisine, Plan de travail & électroménager, Conservation des aliments | par Inès Mercier |
+| 4 | 💻 **Vie Digitale & Tech** | IA image & photo, IA voix & audio, IA texte, WordPress & sites web, Webmail académique & ENT, Noms de domaine & hébergement, Présentations & outils IA | par Lucas Moreau |
+| 5 | 🎨 **Loisirs Créatifs & Dessin** | Dessin facile pour débutants, Idées de dessin (mignon, cute, mini, rigolo), Tutoriels & bases, Inspiration & panne d'idées | par Manon Picard |
+| 6 | ✈️ **Voyage & Évasion** | Carnets de voyage & aquarelle, Affiches & illustrations de voyage, Déco thème voyage, Inspiration & style de voyage, Photos & fonds d'écran | par Chloe Bartoli |
+| 7 | 🍳 **Cuisine & Recettes** | Recettes du quotidien, Plats de famille, Techniques de base | par Thomas Dubois |
 
-**Répartition des articles publiés :** Vie Digitale & Tech **105** · Maison & Organisation **33** · Voyage & Évasion **21** · Loisirs Créatifs & Dessin **19** · Inspirations & Bien-être **18** · Enfance & Famille **15** · Cuisine & Recettes **0** → **total 211**.
 
 ---
 
@@ -207,12 +201,12 @@ Des guides d'inspiration, souvent visuels (idées classées par style, palette o
 
 ---
 
-### 👨 Thomas Dubois *(rubrique en préparation)*
+### 👨 Thomas Dubois
 **Responsable de la rubrique Cuisine & Recettes**
 
 > *"Ce n'est pas un métier que j'ai choisi tout seul : c'est ma grand-mère Josiane qui me l'a mise entre les mains avant que je sache lire une recette."*
 
-Thomas est originaire de Lille. Il a un CAP cuisine, un bac pro et plusieurs années en brasserie lilloise. Il a compris que ce qu'il aimait n'était pas la pression du service. **Aucun article n'est encore publié** dans cette rubrique.
+Thomas est originaire de Lille. Il a un CAP cuisine, un bac pro et plusieurs années en brasserie lilloise. Il a compris que ce qu'il aimait n'était pas la pression du service.
 
 **📂 Catégorie de compétence:**
 
@@ -223,7 +217,7 @@ Thomas est originaire de Lille. Il a un CAP cuisine, un bac pro et plusieurs ann
 **💪 Points forts:** cuisine de famille, formation professionnelle, transmission.
 
 **🖋️ Ce que tu trouveras dans ses articles:**
-Des recettes accessibles et des techniques de base, expliquées sans jargon, avec des alternatives et des budgets réels. Rubrique à lancer ; elle se relie naturellement à **Maison & Organisation** (rangement de cuisine).
+Des recettes accessibles et des techniques de base, expliquées sans jargon, avec des alternatives et des budgets réels. Elle se relie naturellement à **Maison & Organisation** (rangement de cuisine).
 
 **🎯 Public & adresse:** familles et personnes qui cuisinent au quotidien.
 
@@ -283,7 +277,7 @@ VOYAGE & ÉVASION                    → Chloe Bartoli
 ├── Inspiration & style de voyage
 └── Photos & fonds d'écran
 
-CUISINE & RECETTES (à lancer)       → Thomas Dubois
+CUISINE & RECETTES                  → Thomas Dubois
 ├── Recettes du quotidien
 ├── Plats de famille
 └── Techniques de base
@@ -313,20 +307,7 @@ Chaque auteur a une voix propre, reconnaissable, sincère :
 - **Lucas** teste les outils et t'explique leurs limites honnêtement
 - **Manon** t'invite à te lancer, à rater et à recommencer
 - **Chloe** te fait voyager, même depuis chez toi
-- **Thomas** *(à venir)* te transmet la cuisine comme on se la transmet en famille
-
----
-
-## ⚠️ Points d'attention éditoriaux (constats sur les articles publiés)
-
-1. **Déséquilibre de la ligne éditoriale :** la rubrique Vie Digitale & Tech représente **105 articles sur 211 (près de 50 %)**, alors que la promesse du site est un magazine du quotidien (maison, famille, bien-être). Pour équilibrer, il faut renforcer les autres rubriques, surtout **Maison & Organisation, Enfance & Famille et la future Cuisine**.
-2. **Enfance & Famille est monothématique :** les 15 articles portent tous sur la **coiffure enfant**. Il manque des piliers (chambre, activités, rentrée, fêtes).
-3. **Inspirations & Bien-être est centrée sur les citations :** 18 articles de citations ; les rituels, la pleine conscience et le journal ne sont pas encore traités.
-4. **Maison & Organisation est centrée sur la cuisine :** salle de bain, entrée, salon, bureau et garage sont à créer.
-5. **Loisirs Créatifs est centrée sur le dessin** : couture, tricot, DIY et restauration de meubles sont à ouvrir.
-6. **Exceptions à la règle « un article = un auteur » :** Lucas Moreau apparaît sur **2 articles de Voyage & Évasion** (« Carnet de voyage aesthetic » et « 19 images de voyage », ce dernier en co-signature avec Chloe). À rattacher à Chloe pour respecter la règle d'une catégorie par auteur.
-7. **Cannibalisation possible :** plusieurs articles ciblent presque la même requête (par exemple les nombreux « coiffure enfant », « citation vie », « dessin facile » et « webmail IA XX »). Chaque sous-catégorie doit avoir **un article pilier** et des clusters qui visent des requêtes distinctes.
-8. **Thomas Dubois :** la rubrique Cuisine & Recettes existe dans WordPress mais est vide (0 article). À lancer ou à retirer du menu tant qu'elle est vide.
+- **Thomas** te transmet la cuisine comme on se la transmet en famille
 
 ---
 
